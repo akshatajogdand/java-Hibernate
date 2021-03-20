@@ -6,11 +6,13 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import BEAN_classes.Employee;
+import utility_Dao.utility;
 
 public class EmpEntry 
 {
 	public static void main(String[] args)
 	{
+		/**
 		
 //		1. create configuration class object and call configure() method 
 		Configuration config = new Configuration().configure();
@@ -25,13 +27,14 @@ public class EmpEntry
 		Transaction tr = session.beginTransaction();
 		
 //		5. create entity object and pass it to save() method
-		Employee emp = new Employee();
-		emp.setEcode(123459);
-		emp.setEname("aksah==");
-		emp.setSalary(40000);
-		emp.setDesg("engineer");
+//		Employee emp = new Employee();
+//		emp.setEcode(123459);
+//		emp.setEname("aksah==");
+//		emp.setSalary(40000);
+//		emp.setDesg("engineer");
+//		session.save(emp);
 		
-		session.save(emp);		
+		session.save(new Employee(123,"akshataj",12000,"tester"));		
 	
 //		6. commit Transaction 
 		tr.commit();
@@ -41,5 +44,27 @@ public class EmpEntry
 		
 		System.out.println("stored...........");
 	}
+	**/
+		Employee emp = new Employee(12121, "amruta", 50000, "devloper");
+		
+//		SessionFactory sf = utility.getSession();
+//		Session session = sf.openSession();	
 
+		Session session = utility.getSession().openSession();
+		
+		Transaction tr = session.beginTransaction();
+		session.save(emp);
+		System.out.println(emp);
+		tr.commit();
+		
+		session.close();
+		
+		System.out.println("stored using 2 method...........");
+		
+		
+		
+		
+				
+
+}
 }

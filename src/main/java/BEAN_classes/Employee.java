@@ -3,6 +3,7 @@ package BEAN_classes;
 import javax.persistence.*;
 
 @Entity
+///@Table(name = "EmployeeTable")
 public class Employee {
 
 @Id	
@@ -10,6 +11,33 @@ int ecode;
 String ename;
 int salary;
 String desg;
+
+
+
+
+
+public Employee() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
+public Employee(int ecode) {
+	super();
+	this.ecode = ecode;
+}
+
+public Employee(int ecode, String ename, int salary, String desg) {
+	super();
+	this.ecode = ecode;
+	this.ename = ename;
+	this.salary = salary;
+	this.desg = desg;
+}
+
+
+
+
+
 
 public String getDesg() {
 	return desg;
@@ -35,6 +63,8 @@ public int getSalary() {
 public void setSalary(int salary) {
 	this.salary = salary;
 }
+
+
 
 
 
